@@ -10,8 +10,8 @@ public class BinaryNode<T extends Comparable<? super T> > {
     public BinaryNode(T data) 
     {
     	this.data = data;
-    	this.right = null;
-    	this.left = null;
+    	right = null;
+    	left = null;
     }
 
     // TODO: on retourne la donnee voulue
@@ -25,26 +25,26 @@ public class BinaryNode<T extends Comparable<? super T> > {
     // O(log(n))
     public void insert(T item) 
     {
-    	if(item.compareTo(this.data) <= 0)
+    	if(data.compareTo(item) >= 0)
     	{
-    		if(this.left != null)
+    		if(left != null)
     		{
-    			this.left.insert(item);
+    			left.insert(item);
     		}
     		else 
     		{
-    			this.left = new BinaryNode<T>(item);
+    			left = new BinaryNode<T>(item);
     		}
     	}
     	else
     	{
-    		if(this.right != null)
+    		if(right != null)
     		{
-    			this.right.insert(item);
+    			right.insert(item);
     		}
     		else 
     		{
-    			this.right = new BinaryNode<T>(item);
+    			right = new BinaryNode<T>(item);
     		}
     	}
     }
@@ -57,7 +57,7 @@ public class BinaryNode<T extends Comparable<? super T> > {
     	{
     		containsValue = true;
     	}
-    	else if(data.compareTo(item) > 0 && left != null )
+    	else if(data.compareTo(item) > 0 && left != null)
     	{
     		containsValue = left.contains(item);
     	}
@@ -75,7 +75,8 @@ public class BinaryNode<T extends Comparable<? super T> > {
     	if(left != null && right != null)
     	{
     		height = Math.max(left.getHeight(), right.getHeight())+1;
-    	}else if(right != null)
+    	}
+    	else if(right != null)
     	{
     		height = right.getHeight() + 1;
     	}
@@ -83,7 +84,6 @@ public class BinaryNode<T extends Comparable<? super T> > {
     	{
     		height = left.getHeight() + 1;
     	}    	
-    	
         return height;
     }
 

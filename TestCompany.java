@@ -97,7 +97,7 @@ public class TestCompany {
                 " >  > 25\n" +
                 " >  >  > 4\n" +
                 " >  >  >  > -1\n";
-        System.out.print(tree.getTreeInOrder());
+        //System.out.print(tree.getTreeInOrder());
         TestHelper.printTest(tree.getTreeInOrder().equals(expected));
     }
 }

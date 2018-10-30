@@ -11,7 +11,7 @@ public class BinarySearchTree<T extends Comparable<? super T> > {
 
     // TODO: initialisation
     public BinarySearchTree(T item) {
-    	this.root = new BinaryNode<T>(item);
+    	root = new BinaryNode<T>(item);
     }
 
     // TODO: on insere un nouvel item a partir de la racine
@@ -48,7 +48,8 @@ public class BinarySearchTree<T extends Comparable<? super T> > {
     	for(int i = 0; i < tempOrderList.size(); i++)
     	{
     		tempString += tempOrderList.get(i).getData().toString();
-    		if(i != tempOrderList.size() - 1) {
+    		if(i != tempOrderList.size() - 1)
+    		{
     			tempString += ", ";
     		}
     	}
