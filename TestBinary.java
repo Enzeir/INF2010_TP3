@@ -133,7 +133,7 @@ public class TestBinary {
         }
         TestHelper.printTest(max - 1 == tree.getHeight());
     }
-
+/*
     private void testComplexity() {
         long startTime = System.nanoTime();
         int max = 2000;
@@ -192,4 +192,5 @@ public class TestBinary {
         long duration = (System.nanoTime() - startTime);
         TestHelper.printTest(isGood && duration < 1600000000);
     }
+    */
 }

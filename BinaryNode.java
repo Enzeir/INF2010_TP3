@@ -52,19 +52,53 @@ public class BinaryNode<T extends Comparable<? super T> > {
     // TODO: est-ce que l'item fais partie du noeuds courant
     // O(log(n))
     public boolean contains(T item) {
-        return false;
+    	boolean containsValue = false;
+    	if(data.compareTo(item) == 0)
+    	{
+    		containsValue = true;
+    	}
+    	else if(data.compareTo(item) > 0 && left != null )
+    	{
+    		containsValue = left.contains(item);
+    	}
+    	else if(data.compareTo(item) < 0 && right != null)
+    	{
+    		containsValue = right.contains(item);
+    	}
+        return containsValue;
     }
 
     // TODO: on retourne la maximale de l'arbre
     // O(n)
     public int getHeight() {
-        return -1;
+    	int height = 0;  	
+    	if(left != null && right != null)
+    	{
+    		height = Math.max(left.getHeight(), right.getHeight())+1;
+    	}else if(right != null)
+    	{
+    		height = right.getHeight() + 1;
+    	}
+    	else if(left != null)
+    	{
+    		height = left.getHeight() + 1;
+    	}    	
+    	
+        return height;
     }
 
     // TODO: l'ordre d'insertion dans la liste est l'ordre logique
     // de manière que le plus petit item sera le premier inseré
     // O(n)
     public void fillListInOrder(List<BinaryNode<T>> result) {
-
+    	if(left != null) 
+    	{
+    		left.fillListInOrder(result);
+    	}
+    	result.add(this);
+    	if(right!= null)
+    	{
+    		right.fillListInOrder(result);
+    	}
     }
 }
