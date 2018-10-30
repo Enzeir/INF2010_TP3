@@ -21,10 +21,7 @@ public class CompanyNode implements Comparable<CompanyNode> {
     	}else {
     		childs.insert(item);
     	}
-    	
     	money += item.getMoney();
-    	
-    	
     	if(worstChild.getMoney() > item.worstChild.getMoney())
     	{
     		worstChild = item.worstChild;
@@ -45,25 +42,15 @@ public class CompanyNode implements Comparable<CompanyNode> {
     // les enfants sont afficher du plus grand au plus petit (voir TestCompany.testPrint)
     // O(n)
     public void fillStringBuilderInOrder(StringBuilder builder, String prefix) {    	
-    	builder.append(getMoney().toString()+"\n");
-
+    	
     	String test = prefix;
-    	
-    	
     	if(childs != null) {
-    		for(int i = childs.getItemsInOrder().size() - 1; i>= 0; i--) {
+    		List<BinaryNode<CompanyNode>> OrderedList = childs.getItemsInOrder();
+    		for(int i = OrderedList.size() - 1; i>= 0; i--) {
     	    	builder.append(prefix);
-    	    	
-    	    	if(childs.getItemsInOrder().get(i).getData().childs != null)
-    	    		prefix += " > ";
-    	    	else
-    	    	if(i == 0)
-    	    		prefix = prefix.substring(2, prefix.length()-1);
-    	    	
-    			childs.getItemsInOrder().get(i).getData().fillStringBuilderInOrder(builder, prefix);
+    	    	builder.append(childs.getItemsInOrder().get(i).getData().getMoney().toString()+"\n");
+    			childs.getItemsInOrder().get(i).getData().fillStringBuilderInOrder(builder, prefix + " > ");
     		}
-    		
-    		
     	}
     	
     }

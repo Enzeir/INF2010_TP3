@@ -33,6 +33,7 @@ public class CompanyTree {
     // O(1)
     public String getTreeInOrder() {
     	StringBuilder builder = new StringBuilder();
+    	builder.append(root.getMoney() + "\n");
     	root.fillStringBuilderInOrder(builder, " > ");
         return builder.toString();
     }
